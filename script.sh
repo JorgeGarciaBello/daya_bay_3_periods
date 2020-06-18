@@ -1,0 +1,1 @@
+gfortran db_subroutines/*.f* main.f90
