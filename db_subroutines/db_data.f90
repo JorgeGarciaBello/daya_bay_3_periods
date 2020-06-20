@@ -2,8 +2,8 @@ module db_data
     use types, only: dp
     implicit none
     integer,parameter :: PD=3            ! PD is the number of period of data taking
-    integer,parameter :: NDIM=23         ! NDIM is the number of pull parameters
-    integer,parameter :: ADS=8           ! ADS is the number of detectors
+    integer,parameter :: NDIM=23         ! NDIM is the number of pull parameters    
+    integer,parameter :: ADS=8           ! ADS is the number of detectors    
     integer,parameter :: RCTS=6          ! RCTS is the number of reactors
     integer,parameter :: RIR=4           ! RIR is the number of radioactive isotopes in the reactors     
     integer,parameter :: NBIN=26         ! NBIN is the number of energy's bin        
@@ -30,7 +30,9 @@ module db_data
     real(dp) :: rand_Ncrosssection_p2(NBIN*2,1,num_experiments)
     real(dp) :: rand_Ncrosssection_p3(NBIN*2,1,num_experiments)
 
-    !real(dp) :: rand_Nweightedefficiencytp_p1(NBIN*2,ADS,num_experiments)    
+    real(dp) :: rand_Nweightedefficiencytp_p1(NBIN*2,ADS,num_experiments)
+    real(dp) :: rand_Nweightedefficiencytp_p2(NBIN*2,ADS,num_experiments)
+    real(dp) :: rand_Nweightedefficiencytp_p3(NBIN*2,ADS,num_experiments)
     !real(dp) :: rand_Nenergy_p1(NBIN,num_experiments)
     !real(dp) :: rand_Nspectramodel_n_p1(NBIN*2,num_experiments)
     !real(dp) :: rand_Nspectramodel_f_p1(NBIN*2,num_experiments)
@@ -68,6 +70,21 @@ module db_data
     real(dp) :: sigma_cross_section_p2(NBIN)
     real(dp) :: cross_section_p3(NBIN)
     real(dp) :: sigma_cross_section_p3(NBIN)
+
+    real(dp) :: weighted_efficiency_target_proton_p1(ADS)
+    real(dp) :: sigma_weighted_efficiency_target_proton_un_p1(ADS)
+    real(dp) :: sigma_weighted_efficiency_target_proton_corr_p1(ADS)
+    real(dp) :: weighted_efficiency_target_proton_p2(ADS)
+    real(dp) :: sigma_weighted_efficiency_target_proton_un_p2(ADS)
+    real(dp) :: sigma_weighted_efficiency_target_proton_corr_p2(ADS)
+    real(dp) :: weighted_efficiency_target_proton_p3(ADS)
+    real(dp) :: sigma_weighted_efficiency_target_proton_un_p3(ADS)
+    real(dp) :: sigma_weighted_efficiency_target_proton_corr_p3(ADS)
+
+    real(dp) :: lengths(ADS,RCTS)
+    real(dp) :: live_time_days_per_ad(3,ADS)
+    real(dp) :: prompt_energy_bines(NBIN,2)
+    
 
     
 end module db_data

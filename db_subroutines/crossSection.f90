@@ -5,10 +5,18 @@
 !       beta decay inside the detector [1/cm^2]
 !
 !################################################
-real(8) function crossSection(x)
+function crossSection(x)
+    use types, only: dp
     implicit none
-    real(8) :: x ! Energía del neutrinos
-                 ! 1.29 diferencia de masa entre neutron y proton [Fumihiko_page-29]                 
-    crossSection = 1.0D-47*(x -1.29D0)*sqrt((x - 1.29D0)**2 - 0.511D0**2)    
+    real(dp) :: crossSection
+    real(dp) :: x ! Energía del neutrinos
+                 ! 1.29 diferencia de masa entre neutron y proton [Fumihiko_page-29]
+
+    if(x<=1.8010001_dp) then
+        print*, 'La energía es menor al threshold de la cross section'
+        stop
+    else
+        crossSection = 1.0D-47*(x -1.29D0)*sqrt((x - 1.29D0)**2 - 0.511D0**2)
+    end if       
                  ! 1.0D-43 [cm^2]  || 1.0D-47 [m^2]
 end function crossSection

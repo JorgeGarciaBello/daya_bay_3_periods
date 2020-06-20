@@ -8,7 +8,7 @@ subroutine db_generate_B_Nsignal()
     
 
     call db_generate_cross_section()
-    !call db_generate_weighted_efficiency_target_proton()
+    call db_generate_weighted_efficiency_target_proton()
     !call db_generate_energy()
     !call db_generate_spectra_model()
     return
